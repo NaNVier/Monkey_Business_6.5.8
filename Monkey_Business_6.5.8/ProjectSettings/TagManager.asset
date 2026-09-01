@@ -42,6 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ground
+    uniqueID: 3087575123
+    locked: 0
+  - name: Traps
+    uniqueID: 776816085
+    locked: 0
+  - name: Player
+    uniqueID: 3865228061
+    locked: 0
   m_RenderingLayers:
   - Default
   m_MigratedRenderPipelines: []

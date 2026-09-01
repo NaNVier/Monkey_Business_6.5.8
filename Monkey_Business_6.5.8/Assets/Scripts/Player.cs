@@ -1,8 +1,23 @@
 using System.Collections;
 using UnityEngine;
+// using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+
+    //[SerializeField] private InputActionAsset inputActions;
+    //InputAction moveAction;
+
+    // Initializes its contents before the game begins 
+    //void Awake()
+    //{
+    //    InputActionMap playerMap = inputActions.FindActionMap("Player", true);
+
+    //    moveAction = playerMap.FindAction("Move", true);
+
+    //    playerMap.Enable();
+    //}
+
     public int health = 100;
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
