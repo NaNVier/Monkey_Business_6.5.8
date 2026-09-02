@@ -6,16 +6,25 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
+    //[SerializeField] private float runSpeed = 5.0f; 
+    //
     //[SerializeField] private InputActionAsset inputActions;
+    //
     //InputAction moveAction;
-
+    //
+    //public Vector2 MoveInput {get; private set;}
+    //
+    //Rigidbody2D playerCharacter; 
+    //
     // Initializes its contents before the game begins 
     //void Awake()
     //{
-    //    InputActionMap playerMap = inputActions.FindActionMap("Player", true);
-
-    //    moveAction = playerMap.FindAction("Move", true);
-
+    //    playerCharacter = GetComponent<Rigidbody2D>();
+    //
+    //    InputActionMap playerMap = inputActions.FindActionMap ("Player", true);
+    //
+    //    moveAction = playerMap.FindAction ("Move", true);
+    //
     //    playerMap.Enable();
     //}
 
@@ -41,29 +50,35 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        
+
         extraJumps = extraJumpsValue; 
     }
 
     
     void Update()
     {
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocityY);
+        float moveInput = Input.GetAxis ("Horizontal");
+        rb.linearVelocity = new Vector2 (moveInput * moveSpeed, rb.linearVelocityY);
 
-        if(isGrounded)
+        // MoveInput = moveAction.ReadValue<Vector2>();
+        //
+        //Run();
+
+        if (isGrounded)
         {
             extraJumps = extraJumpsValue;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown (KeyCode.Space))
         {
-            if(isGrounded)
+            if (isGrounded)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpForce);
+                rb.linearVelocity = new Vector2 (rb.linearVelocityX, jumpForce);
             }
-            else if(extraJumps > 0)
+            else if (extraJumps > 0)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpForce);
+                rb.linearVelocity = new Vector2 (rb.linearVelocityX, jumpForce);
                 extraJumps--;
             }
 
@@ -74,46 +89,53 @@ public class Player : MonoBehaviour
         healthImage.fillAmount = health / 100f;
     }
 
+    //private void Run()
+    //{
+    //   float hMovement = MoveInput.x;
+    //
+    //   playerCharacter.linearVelocity = new Vector2(hMovement * runSpeed, playerCharacter.linearVelocity.y);
+    //}
+
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        isGrounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, groundLayer);
     }
 
-    private void SetAnimation(float moveInput)
+    private void SetAnimation (float moveInput)
     {
         if(isGrounded)
         {
-            if(moveInput == 0)
+            if (moveInput == 0)
             {
-                animator.Play("Player-Idle");
+                animator.Play ("Player-Idle");
             }
             else
             {
-                animator.Play("Player_run");
+                animator.Play ("Player_run");
             }
         }
         else
         {
-            if(rb.linearVelocityY > 0)
+            if (rb.linearVelocityY > 0)
             {
-                animator.Play("Player_jump");
+                animator.Play ("Player_jump");
             }
             else
             {
-                animator.Play("Player_fall");
+                animator.Play ("Player_fall");
             }
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D (Collision2D collision)
     {
-        if(collision.gameObject.tag == "Damage")
+        if (collision.gameObject.tag == "Damage")
         {
             health -= 25;
             rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpForce);
             StartCoroutine(Blinkred());
 
-            if(health <= 0)
+            if (health <= 0)
             {
                 Die();
             }
@@ -129,6 +151,6 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene ("SampleScene");
     }
 }
