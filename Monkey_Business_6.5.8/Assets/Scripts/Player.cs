@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     //    playerMap.Enable();
     //}
 
+    public int coins;
     public int health = 100;
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
