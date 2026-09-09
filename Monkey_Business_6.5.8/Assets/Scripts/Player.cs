@@ -37,6 +37,12 @@ public class Player : MonoBehaviour
     public LayerMask groundLayer;
     public Image healthImage;
 
+    [Header("Shooting")]
+    public GameObject bulletPrefab;
+    public float fireRate;
+
+    private float fireTimer;
+
     private Rigidbody2D rb;
     private bool isGrounded;
 
@@ -65,6 +71,18 @@ public class Player : MonoBehaviour
         // MoveInput = moveAction.ReadValue<Vector2>();
         //
         //Run();
+        
+        if(rb.linearVelocity.x != 0)
+        {
+            if(rb.linearVelocity.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else
+            {
+                spriteRenderer.flipX = true;
+            }
+        }
 
         if (isGrounded)
         {
@@ -88,6 +106,8 @@ public class Player : MonoBehaviour
         SetAnimation(moveInput);
 
         healthImage.fillAmount = health / 100f;
+
+        Handleshooting();
     }
 
     //private void Run()
@@ -153,5 +173,33 @@ public class Player : MonoBehaviour
     private void Die()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene ("SampleScene");
+    }
+
+    private void Handleshooting()
+    {
+        fireTimer -= Time.deltaTime;
+
+        if(Input.GetMouseButton(0) && fireTimer <= 0f)
+        {
+            Shoot();
+
+            fireTimer = fireRate;
+        }
+    }
+
+    private void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+
+        if(spriteRenderer.flipX)
+        {
+            bulletScript.SetDirection(Vector2.left);
+        }
+        else
+        {
+            bulletScript.SetDirection(Vector2.right);
+        }
     }
 }

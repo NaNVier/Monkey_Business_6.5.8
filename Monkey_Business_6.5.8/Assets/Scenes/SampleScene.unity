@@ -3640,6 +3640,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   healthImage: {fileID: 1229032598}
+  bulletPrefab: {fileID: 0}
+  fireRate: 0
   extraJumpsValue: 1
 --- !u!95 &2053959830
 Animator:
