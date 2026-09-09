@@ -175,6 +175,15 @@ public class Player : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene ("SampleScene");
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "PowerUp")
+        {
+            extraJumps = 2;
+            Destroy(collision.gameObject);
+        }
+    }
+
     private void Handleshooting()
     {
         fireTimer -= Time.deltaTime;
