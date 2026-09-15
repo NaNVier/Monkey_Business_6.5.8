@@ -45,6 +45,14 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab;
     public float fireRate;
 
+    [Header("Crouch")]
+    public float crouchSpeed = 2f;
+    public KeyCode crouchKeyP1 = KeyCode.S;
+
+    private bool isCrouching;
+    private CapsuleCollider2D capsuleCollider;
+    private Vector2 originalColliderSize;
+
     private float fireTimer;
 
     private Rigidbody2D rb;
@@ -61,7 +69,8 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
+        originalColliderSize = capsuleCollider.size;
 
         extraJumps = extraJumpsValue; 
     }
@@ -112,6 +121,17 @@ public class Player : MonoBehaviour
         healthImage.fillAmount = health / 100f;
 
         Handleshooting();
+
+        bool crouchInput = Input.GetKey(crouchKeyP1);
+
+        if (crouchInput)
+        {
+            StartCrouch();
+        }
+        else
+        {
+            StopCrouch();
+        }
     }
 
     //private void Run()
@@ -139,10 +159,18 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, groundLayer);
+
+        float currentSpeed = isCrouching ? crouchSpeed : moveSpeed; 
     }
 
     private void SetAnimation (float moveInput)
     {
+        if (isCrouching)
+        {
+            animator.Play("Player_crouch");
+            return;
+        }
+        
         if(isGrounded)
         {
             if (moveInput == 0)
@@ -229,5 +257,24 @@ public class Player : MonoBehaviour
         {
             bulletScript.SetDirection(Vector2.right);
         }
+    }
+
+    void StartCrouch()
+    {
+        if (isCrouching) return;
+
+        isCrouching = true;
+        capsuleCollider.size = new Vector2(originalColliderSize.x, originalColliderSize.y * 0.5f);
+
+    }
+
+    void StopCrouch()
+    {
+        if (!isCrouching) return;
+
+        isCrouching = false;
+
+        capsuleCollider.size = originalColliderSize;
+
     }
 }
