@@ -3214,9 +3214,9 @@ GameObject:
   - component: {fileID: 2053959825}
   - component: {fileID: 2053959827}
   - component: {fileID: 2053959828}
-  - component: {fileID: 2053959829}
   - component: {fileID: 2053959830}
   - component: {fileID: 2053959831}
+  - component: {fileID: 2053959832}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3373,33 +3373,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2053959829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053959823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9b08b61594bcb540865630feb3c11fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  coins: 0
-  health: 100
-  moveSpeed: 5
-  jumpForce: 10
-  groundCheck: {fileID: 1236883492}
-  groundCheckRadius: 0.2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  healthImage: {fileID: 1229032598}
-  bulletPrefab: {fileID: 1774366849733464593, guid: 0455bacdfd41b544d9b3a40ec7fd01fd, type: 3}
-  fireRate: 0.3
-  crouchSpeed: 2
-  crouchKeyP1: 115
-  extraJumpsValue: 1
 --- !u!95 &2053959830
 Animator:
   serializedVersion: 7
@@ -3410,7 +3383,7 @@ Animator:
   m_GameObject: {fileID: 2053959823}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eaf5c1e3eef19374baee7ede49320f93, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0896f7a130e85ff42a0fd8f3957251a9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3459,6 +3432,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!114 &2053959832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053959823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f883229ef5c3842941aaa80535223d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  runSpeed: 5
+  runAcceleration: 30
+  runDeceleration: 40
+  jumpSpeed: 5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  coins: 0
 --- !u!1 &2080408278
 GameObject:
   m_ObjectHideFlags: 0

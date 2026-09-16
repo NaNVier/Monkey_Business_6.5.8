@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 // using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class PlayerV1 : MonoBehaviour
 {
 
     //[SerializeField] private float runSpeed = 5.0f; 
