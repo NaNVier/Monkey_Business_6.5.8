@@ -29,6 +29,11 @@ public class Player : MonoBehaviour
 
     public Vector2 MoveInput { get; private set; }
 
+    [Header("Shooting")]
+    public GameObject bulletPrefab;
+    public float fireRate;
+    private float fireTimer;
+
     Rigidbody2D playerCharacter;
 
     Animator playerAnimator;
@@ -67,6 +72,7 @@ public class Player : MonoBehaviour
 
         Run();
         Jump();
+        Handleshooting();
         FlipSprite();
     }
 
@@ -116,4 +122,23 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Handleshooting()
+    {
+        fireTimer -= Time.deltaTime;
+
+        if (Input.GetMouseButton(0) && fireTimer <= 0f)
+        {
+            Shoot();
+
+            fireTimer = fireRate;
+        }
+    }
+
+    private void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+
+    }
 }
