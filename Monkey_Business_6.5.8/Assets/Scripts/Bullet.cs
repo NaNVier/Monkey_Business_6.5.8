@@ -2,21 +2,25 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10.0f;
-    public float lifeTime = 3f;
+    [SerializeField] public float speed = 10f;
+    [SerializeField] public float lifeTime = 3f;
 
-    private Vector2 direction; 
+    private Rigidbody2D rb;
 
-    public void SetDirection(Vector2 dir)
+    private void Awake()
     {
-        direction = dir;
+        rb = GetComponent<Rigidbody2D>();
+    }
+    public void Launch(Vector2 direction)
+    {
+        if(direction.x < 0)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+
+        rb.linearVelocity = direction * speed;
         Destroy(gameObject, lifeTime);
     }
-    void Update()
-    {
-        transform.Translate(direction * speed * Time.deltaTime);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player") return;

@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
 
     InputAction jumpAction;
 
+    private SpriteRenderer spriteRenderer;
+
     public int coins;
     public bool JumpPressedThisFrame => jumpAction != null && jumpAction.WasPressedThisFrame();
 
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab;
     public float fireRate;
     private float fireTimer;
+    public float bulletSpeed = 10f;
     public Transform firePoint;
 
     Rigidbody2D playerCharacter;
@@ -72,6 +75,8 @@ public class Player : MonoBehaviour
         moveAction = playerMap.FindAction("Move", true);
 
         jumpAction = playerMap.FindAction("Jump", true);
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         playerMap.Enable();
 
@@ -172,7 +177,7 @@ public class Player : MonoBehaviour
 
         lastGroundTime = 0;
 
-        jumpBufferTime = 0;
+        jumpBufferTimer = 0;
     }
 
     private void BetterGravity()
@@ -203,9 +208,17 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+       float shootDirectionX = spriteRenderer.flipX ? -1f : 1f;
+        
+       Vector2 launchDirection = new Vector2(shootDirectionX, 0f);
+        
+       GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        //rb.linearVelocity = new Vector2(facingDirection * bulletSpeed, 0f);
+       Bullet projectile = bulletObj.GetComponent<Bullet>();
+        
+       if (projectile != null)
+        {
+            projectile.Launch(launchDirection);
+        }
     }
 }
