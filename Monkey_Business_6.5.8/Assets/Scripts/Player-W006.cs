@@ -20,8 +20,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float jumpBufferTime = 0.1f;
 
+    [SerializeField] private float ladderJumpTime = 0.15f;
+
     [SerializeField] private float fallGravityMultiplier = 2.0f;
 
+    [SerializeField] private float climbSpeed = 5.0f;
+    
+    float jumpedOffLatterTimer;
+    
     float gravityScaleAtStart;
 
     float lastGroundTime;
@@ -29,6 +35,8 @@ public class Player : MonoBehaviour
     float jumpBufferTimer; 
 
     [SerializeField] private LayerMask groundLayer;
+
+    LayerMask climbingLayer; 
     
     [SerializeField] private InputActionAsset inputActions;
 
@@ -59,6 +67,8 @@ public class Player : MonoBehaviour
 
     BoxCollider2D playerFeetCollider;
 
+    CapsuleCollider2D playerBodyCollider;
+
     // Initializes its contents before the game begins
     void Awake()
     {
@@ -68,7 +78,11 @@ public class Player : MonoBehaviour
 
         playerFeetCollider = GetComponent<BoxCollider2D>();
 
+        playerBodyCollider = GetComponent<CapsuleCollider2D>();
+
         gravityScaleAtStart = playerCharacter.gravityScale;
+
+        climbingLayer = LayerMask.GetMask("Climbing");
         
         InputActionMap playerMap = inputActions.FindActionMap("Player", true);
 
@@ -94,8 +108,9 @@ public class Player : MonoBehaviour
         MoveInput = moveAction.ReadValue<Vector2>();
 
         Run();
-        Jump();
+        Jump();        
         BetterGravity();
+        Climb();
         Handleshooting();
         FlipSprite();
     }
@@ -144,7 +159,7 @@ public class Player : MonoBehaviour
             playerCharacter.linearVelocity = new Vector2(playerCharacter.linearVelocity.x, playerCharacter.linearVelocity.y * jumpCutMultiplier);
         }
         
-        bool isGrounded = playerFeetCollider.IsTouchingLayers(GroundLayer);
+        bool isGrounded = playerFeetCollider.IsTouchingLayers(groundLayer) || playerFeetCollider.IsTouchingLayers(climbingLayer);
 
         if(isGrounded)
         {
@@ -220,5 +235,31 @@ public class Player : MonoBehaviour
         {
             projectile.Launch(launchDirection);
         }
+    }
+
+    private void Climb()
+    {
+        jumpedOffLatterTimer -= Time.deltaTime;
+
+        if (jumpedOffLatterTimer > 0 || !playerBodyCollider.IsTouchingLayers(climbingLayer))
+        {
+            playerAnimator.SetBool("climb", false);
+            
+            playerCharacter.gravityScale = gravityScaleAtStart;
+
+            return;
+        }
+
+        float vMovement = MoveInput.y;
+
+        Vector2 climbingVelocity = new Vector2(MoveInput.x * runSpeed, vMovement * climbSpeed);
+
+        playerCharacter.linearVelocity = climbingVelocity;
+
+        bool vSpeed = Mathf.Abs(playerCharacter.linearVelocity.y) > Mathf.Epsilon;
+
+        playerAnimator.SetBool("Climb", true);
+        
+        playerCharacter.gravityScale = 0f;
     }
 }
