@@ -715,6 +715,7 @@ GameObject:
   - component: {fileID: 254272170}
   - component: {fileID: 254272169}
   - component: {fileID: 254272168}
+  - component: {fileID: 254272171}
   m_Layer: 5
   m_Name: Level 2 Button
   m_TagString: Untagged
@@ -781,7 +782,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 254272169}
   m_OnClick:
     m_PersistentCalls:
@@ -836,6 +837,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254272166}
   m_CullTransparentMesh: 1
+--- !u!114 &254272171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254272166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784de2a9e671817489029e9d1facf9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButton
+  level: 2
 --- !u!1 &307348796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,6 +1078,7 @@ GameObject:
   - component: {fileID: 503904660}
   - component: {fileID: 503904659}
   - component: {fileID: 503904658}
+  - component: {fileID: 503904661}
   m_Layer: 5
   m_Name: Level 4 Button
   m_TagString: Untagged
@@ -1130,7 +1145,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 503904659}
   m_OnClick:
     m_PersistentCalls:
@@ -1185,6 +1200,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503904656}
   m_CullTransparentMesh: 1
+--- !u!114 &503904661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503904656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784de2a9e671817489029e9d1facf9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButton
+  level: 4
 --- !u!1 &587191015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1632,7 @@ GameObject:
   - component: {fileID: 896778680}
   - component: {fileID: 896778679}
   - component: {fileID: 896778678}
+  - component: {fileID: 896778681}
   m_Layer: 5
   m_Name: Level 3 Button
   m_TagString: Untagged
@@ -1670,7 +1699,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 896778679}
   m_OnClick:
     m_PersistentCalls:
@@ -1725,6 +1754,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896778676}
   m_CullTransparentMesh: 1
+--- !u!114 &896778681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896778676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784de2a9e671817489029e9d1facf9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButton
+  level: 3
 --- !u!1 &1095880024
 GameObject:
   m_ObjectHideFlags: 0

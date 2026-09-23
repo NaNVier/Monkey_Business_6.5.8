@@ -2004,6 +2004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NextLevel
   nextLevelName: Level2
+  nextLevelValue: 2
 --- !u!1 &938856234 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 609932191654373713, guid: 35b2de4d1fe54d14ca63238a79e5484a, type: 3}
