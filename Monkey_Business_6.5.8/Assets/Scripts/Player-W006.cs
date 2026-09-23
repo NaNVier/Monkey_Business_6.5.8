@@ -72,6 +72,7 @@ public class Player : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+
         playerMap.Enable();
 
     }
@@ -79,7 +80,10 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (Checkpoint.savedPosition != Vector2.zero)
+        {
+            transform.position = Checkpoint.savedPosition;
+        }
     }
 
     // Update is called once per frame
