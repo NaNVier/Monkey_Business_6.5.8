@@ -93,6 +93,11 @@ public class Player : MonoBehaviour
         Climb();
         Handleshooting();
         FlipSprite();
+
+        if(transform.position.y < -10)
+        {
+            Die();
+        }
     }
 
     private void Run()
@@ -252,4 +257,8 @@ public class Player : MonoBehaviour
         playerCharacter.gravityScale = 0f;
     }
 
+    private void Die()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
 }
