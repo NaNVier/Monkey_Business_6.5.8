@@ -1,57 +1,35 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     [Header("Move Settings")]
     [SerializeField] private float runSpeed = 5.0f;
-
     [SerializeField] private float runAcceleration = 30f;
-
     [SerializeField] private float runDeceleration = 40f;
 
     [Header("Jump Settings")]
     [SerializeField] private float jumpSpeed = 5.0f;
-
-    [SerializeField] [Range(0.1f, 1f)] private float jumpCutMultiplier = 0.5f;
-
+    [SerializeField][Range(0.1f, 1f)] private float jumpCutMultiplier = 0.5f;
     [SerializeField] private float coyoteTime = 0.1f;
-
     [SerializeField] private float jumpBufferTime = 0.1f;
-
     [SerializeField] private float ladderJumpTime = 0.15f;
-
     [SerializeField] private float fallGravityMultiplier = 2.0f;
-
     [SerializeField] private float climbSpeed = 5.0f;
-    
     float jumpedOffLatterTimer;
-    
     float gravityScaleAtStart;
-
     float lastGroundTime;
-
-    float jumpBufferTimer; 
-
+    float jumpBufferTimer;
     [SerializeField] private LayerMask groundLayer;
-
-    LayerMask climbingLayer; 
-    
+    LayerMask climbingLayer;
     [SerializeField] private InputActionAsset inputActions;
-
-    
     InputAction moveAction;
-
     InputAction jumpAction;
-
     private SpriteRenderer spriteRenderer;
-
-    public int coins;
     public bool JumpPressedThisFrame => jumpAction != null && jumpAction.WasPressedThisFrame();
-
     public LayerMask GroundLayer => groundLayer.value != 0 ? groundLayer : LayerMask.GetMask("Ground");
-
     public Vector2 MoveInput { get; private set; }
 
     [Header("Shooting")]
@@ -68,6 +46,8 @@ public class Player : MonoBehaviour
     BoxCollider2D playerFeetCollider;
 
     CapsuleCollider2D playerBodyCollider;
+
+    public int coins;
 
     // Initializes its contents before the game begins
     void Awake()
@@ -241,13 +221,22 @@ public class Player : MonoBehaviour
     {
         jumpedOffLatterTimer -= Time.deltaTime;
 
-        if (jumpedOffLatterTimer > 0 || !playerBodyCollider.IsTouchingLayers(climbingLayer))
+        bool onLatter = playerBodyCollider.IsTouchingLayers(climbingLayer);
+
+        bool wasClimbing = playerAnimator.GetBool("climb");
+
+        if (jumpedOffLatterTimer > 0 || !onLatter)
         {
             playerAnimator.SetBool("climb", false);
             
             playerCharacter.gravityScale = gravityScaleAtStart;
 
             return;
+        }
+
+        if(!onLatter && wasClimbing && jumpedOffLatterTimer <= 0)
+        {
+            playerCharacter.linearVelocity = new Vector2(playerCharacter.linearVelocity.x, 0f);
         }
 
         float vMovement = MoveInput.y;
@@ -258,8 +247,9 @@ public class Player : MonoBehaviour
 
         bool vSpeed = Mathf.Abs(playerCharacter.linearVelocity.y) > Mathf.Epsilon;
 
-        playerAnimator.SetBool("Climb", true);
+        playerAnimator.SetBool("climb", true);
         
         playerCharacter.gravityScale = 0f;
     }
+
 }

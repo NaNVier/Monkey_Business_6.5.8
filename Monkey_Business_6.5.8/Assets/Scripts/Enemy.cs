@@ -2,36 +2,54 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 2f;
-    public Transform[] points;
+    [SerializeField] private float movementDistance;
+    [SerializeField] private float speed;
+    [SerializeField] private float damage;
+    private bool movingLeft;
+    private float leftEdge;
+    private float rightEdge;
 
-    private int i;
-    private SpriteRenderer spriteRenderer;
-    void Start()
+    private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        leftEdge = transform.position.x - movementDistance;
+        rightEdge = transform.position.x + movementDistance;
     }
 
-
-    void Update()
+    private void Update()
     {
-        if (Vector2.Distance(transform.position, points[i].position) < 0.25f)
+        if(movingLeft)
         {
-            i++;
-            if (i == points.Length)
+            if(transform.position.x > leftEdge)
             {
-                i = 0;
+                transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
+            }
+            else
+            {
+                movingLeft = false;
             }
         }
-
-        transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
-
-        spriteRenderer.flipX = (transform.position.x - points[i].position.x) < 0f;
+        else
+        {
+            if (transform.position.x < rightEdge)
+            {
+                transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
+            }
+            else
+            {
+                movingLeft = true;
+            }
+        }
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Bullet")
+       if(collision.tag == "Player")
+        {
+            collision.GetComponent<PlayerHealth>().TakeDamage(damage);
+        }
+        
+       if(collision.gameObject.tag == "Bullet")
         {
             Destroy(transform.parent.gameObject);
         }

@@ -8,6 +8,7 @@ TagManager:
   - PowerUp
   - Bullet
   - Ground
+  - Bouncepad
   layers:
   - Default
   - TransparentFX
