@@ -299,7 +299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e759494d75ac44db49c20f9b66d81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  speed: 1
-  points:
-  - {fileID: 6262996554909222451}
-  - {fileID: 5785237746214773424}
+  movementDistance: 5
+  speed: 2
+  damage: 1

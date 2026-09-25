@@ -248,15 +248,6 @@ public class PlayerV1 : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
         Bullet bulletScript = bullet.GetComponent<Bullet>();
-
-        if(spriteRenderer.flipX)
-        {
-            bulletScript.SetDirection(Vector2.left);
-        }
-        else
-        {
-            bulletScript.SetDirection(Vector2.right);
-        }
     }
 
     void StartCrouch()
