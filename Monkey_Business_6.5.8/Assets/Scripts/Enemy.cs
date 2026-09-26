@@ -2,49 +2,36 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float movementDistance;
     [SerializeField] private float speed;
     [SerializeField] private float damage;
-    private bool movingLeft;
-    private float leftEdge;
-    private float rightEdge;
+    public Transform[] points;
+    private int i;
+    private SpriteRenderer spriteRenderer;
 
-    private void Awake()
+    void Start()
     {
-        leftEdge = transform.position.x - movementDistance;
-        rightEdge = transform.position.x + movementDistance;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
+    void Update()
     {
-        if(movingLeft)
+        if (Vector2.Distance(transform.position, points[i].position) < 0.25f)
         {
-            if(transform.position.x > leftEdge)
+            i++;
+            if (i == points.Length)
             {
-                transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
-            }
-            else
-            {
-                movingLeft = false;
+                i = 0;
             }
         }
-        else
-        {
-            if (transform.position.x < rightEdge)
-            {
-                transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
-            }
-            else
-            {
-                movingLeft = true;
-            }
-        }
-    }
 
+        transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+
+        spriteRenderer.flipX = (transform.position.x - points[i].position.x) < 0f;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       if(collision.tag == "Player")
+        if(collision.tag == "Player")
         {
             collision.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
