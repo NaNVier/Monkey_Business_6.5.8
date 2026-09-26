@@ -6,9 +6,9 @@ TagManager:
   tags:
   - Damage
   - PowerUp
-  - Bullet
   - Ground
   - Bouncepad
+  - Laser
   layers:
   - Default
   - TransparentFX

@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
             collision.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
         
-       if(collision.gameObject.tag == "Bullet")
+       if(collision.gameObject.tag == "Laser")
         {
             Destroy(transform.parent.gameObject);
         }
