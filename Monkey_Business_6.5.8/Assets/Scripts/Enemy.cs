@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Enemy : MonoBehaviour
 {
@@ -7,6 +8,15 @@ public class Enemy : MonoBehaviour
     public Transform[] points;
     private int i;
     private SpriteRenderer spriteRenderer;
+    private Transform player;
+    private bool isCharging;
+
+    // Charge
+    public bool canCharge = false;
+    [SerializeField] public float chargeSpeed;
+    [SerializeField] public float sightDistance;
+    [SerializeField] public float loseDistance;
+    public LayerMask playerLayer;
 
     void Start()
     {
@@ -14,6 +24,23 @@ public class Enemy : MonoBehaviour
     }
 
     void Update()
+    {
+        if(canCharge && DetectPlayer())
+        {
+            isCharging = true;
+        }
+
+        if (isCharging)
+        {
+            ChargePlayer();
+        }
+        else
+        {
+            Patrol();
+        }
+    }
+
+    void Patrol()
     {
         if (Vector2.Distance(transform.position, points[i].position) < 0.25f)
         {
@@ -40,5 +67,44 @@ public class Enemy : MonoBehaviour
         {
             Destroy(transform.parent.gameObject);
         }
+    }
+
+    bool DetectPlayer()
+    {
+        Vector2 direction = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, sightDistance, playerLayer);
+
+        if(hit.collider != null)
+        {
+            player = hit.transform;
+            return true;
+        }
+
+        return false;
+    }
+
+    void ChargePlayer()
+    {
+        if(player == null)
+        {
+            isCharging = false;
+            return;
+        }
+
+        float distance = Vector2.Distance(transform.position, player.position);
+
+        if(distance > loseDistance)
+        {
+            isCharging = false;
+            player = null;
+            return;
+        }
+
+        Vector2 target = new Vector2(player.position.x, transform.position.y);
+
+        transform.position = Vector2.MoveTowards(transform.position, target, chargeSpeed * Time.deltaTime);
+
+        spriteRenderer.flipX = (transform.position.x - player.position.x) < 0f;
     }
 }
