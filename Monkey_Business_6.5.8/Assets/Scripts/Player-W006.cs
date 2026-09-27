@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,14 +31,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public bool JumpPressedThisFrame => jumpAction != null && jumpAction.WasPressedThisFrame();
     public LayerMask GroundLayer => groundLayer.value != 0 ? groundLayer : LayerMask.GetMask("Ground");
-    public Vector2 MoveInput { get; private set; }
-
-    [Header("Shooting")]
-    public GameObject bulletPrefab;
-    public float fireRate;
-    private float fireTimer;
-    public float bulletSpeed = 10f;
-    public Transform firePoint;
+    public Vector2 MoveInput { get; private set; } 
 
     Rigidbody2D playerCharacter;
 
@@ -95,7 +89,6 @@ public class Player : MonoBehaviour
         Jump();        
         BetterGravity();
         Climb();
-        Handleshooting();
         FlipSprite();
 
         if(transform.position.y < -10)
@@ -198,34 +191,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Handleshooting()
-    {
-        fireTimer -= Time.deltaTime;
-
-        if (Input.GetMouseButton(0) && fireTimer <= 0f)
-        {
-            Shoot();
-
-            fireTimer = fireRate;
-        }
-    }
-
-    private void Shoot()
-    {
-       float shootDirectionX = spriteRenderer.flipX ? -1f : 1f;
-        
-       Vector2 launchDirection = new Vector2(shootDirectionX, 0f);
-        
-       GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-
-       Bullet projectile = bulletObj.GetComponent<Bullet>();
-        
-       if (projectile != null)
-        {
-            projectile.Launch(launchDirection);
-        }
-    }
-
     private void Climb()
     {
         jumpedOffLatterTimer -= Time.deltaTime;
@@ -260,7 +225,6 @@ public class Player : MonoBehaviour
         
         playerCharacter.gravityScale = 0f;
     }
-
     private void Die()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);

@@ -247,7 +247,7 @@ public class PlayerV1 : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        Laser bulletScript = bullet.GetComponent<Laser>();
     }
 
     void StartCrouch()
