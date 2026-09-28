@@ -5,7 +5,9 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float damage;
+    [SerializeField] private float maxHealth;
     public Transform[] points;
+    public float currentHealth;
     private int i;
     private SpriteRenderer spriteRenderer;
     private Transform player;
@@ -21,6 +23,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -56,6 +59,15 @@ public class Enemy : MonoBehaviour
         spriteRenderer.flipX = (transform.position.x - points[i].position.x) < 0f;
     }
 
+    public void EnemyDamage(float _damage)
+    {
+        currentHealth -= Mathf.Clamp(currentHealth - _damage, 0, maxHealth); 
+
+        if(currentHealth <= 0)
+        {
+            Die();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
@@ -65,7 +77,7 @@ public class Enemy : MonoBehaviour
         
        if(collision.gameObject.tag == "Laser")
         {
-            Destroy(transform.parent.gameObject);
+            //EnemyDamage();
         }
     }
 
@@ -106,5 +118,10 @@ public class Enemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target, chargeSpeed * Time.deltaTime);
 
         spriteRenderer.flipX = (transform.position.x - player.position.x) < 0f;
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }
