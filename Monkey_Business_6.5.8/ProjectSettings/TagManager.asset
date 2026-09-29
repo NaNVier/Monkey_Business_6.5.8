@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Bouncepad
   - Laser
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -3,11 +3,10 @@ using UnityEngine.Rendering;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 1.0f;
     [SerializeField] private float damage;
-    [SerializeField] private float maxHealth;
+    Rigidbody2D enemyCharacter;
     public Transform[] points;
-    public float currentHealth;
     private int i;
     private SpriteRenderer spriteRenderer;
     private Transform player;
@@ -23,12 +22,24 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        currentHealth = maxHealth;
+        enemyCharacter = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        if(canCharge && DetectPlayer())
+        //if(IsFacingRight())
+        //{
+        //    enemyCharacter.linearVelocity = new Vector2(speed, 0);
+        //}
+        //else
+        //{
+        //    enemyCharacter.linearVelocity = new Vector2(-speed, 0);
+        //}
+        // 
+
+
+
+        if (canCharge && DetectPlayer())
         {
             isCharging = true;
         }
@@ -59,25 +70,13 @@ public class Enemy : MonoBehaviour
         spriteRenderer.flipX = (transform.position.x - points[i].position.x) < 0f;
     }
 
-    public void EnemyDamage(float _damage)
-    {
-        currentHealth -= Mathf.Clamp(currentHealth - _damage, 0, maxHealth); 
-
-        if(currentHealth <= 0)
-        {
-            Die();
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //transform.localScale = new Vector2(-(Mathf.Sign(enemyCharacter.linearVelocity.x)), 1.0f):
+        
         if(collision.tag == "Player")
         {
             collision.GetComponent<PlayerHealth>().TakeDamage(damage);
-        }
-        
-       if(collision.gameObject.tag == "Laser")
-        {
-            //EnemyDamage();
         }
     }
 
@@ -118,6 +117,11 @@ public class Enemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target, chargeSpeed * Time.deltaTime);
 
         spriteRenderer.flipX = (transform.position.x - player.position.x) < 0f;
+    }
+
+    bool IsFacingRight()
+    {
+        return transform.localScale.x > 0;
     }
 
     void Die()

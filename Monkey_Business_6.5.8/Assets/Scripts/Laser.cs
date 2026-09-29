@@ -3,6 +3,7 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] public float damage;
     private float lifetime;
     private float direction;
     private bool hit; 
@@ -29,6 +30,11 @@ public class Laser : MonoBehaviour
         hit = true;
         boxCollider.enabled = false;
         gameObject.SetActive(false);
+
+        if(collision.tag == "Enemy")
+        {
+            collision.GetComponent<EnemyHealth>().EnemyTakeDamage(damage);
+        }
     }
 
     public void SetDirection(float _direction)
