@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float runSpeed = 5.0f;
     [SerializeField] private float runAcceleration = 30f;
     [SerializeField] private float runDeceleration = 40f;
+    public InputActionAsset InputActions => inputActions;
 
     [Header("Jump Settings")]
     [SerializeField] private float jumpSpeed = 5.0f;

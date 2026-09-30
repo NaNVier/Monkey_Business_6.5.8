@@ -3,8 +3,9 @@ using UnityEngine.Rendering;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 1.0f;
     [SerializeField] private float damage;
+    Rigidbody2D enemyCharacter;
     public Transform[] points;
     private int i;
     private SpriteRenderer spriteRenderer;
@@ -21,11 +22,24 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        enemyCharacter = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        if(canCharge && DetectPlayer())
+        //if(IsFacingRight())
+        //{
+        //    enemyCharacter.linearVelocity = new Vector2(speed, 0);
+        //}
+        //else
+        //{
+        //    enemyCharacter.linearVelocity = new Vector2(-speed, 0);
+        //}
+        // 
+
+
+
+        if (canCharge && DetectPlayer())
         {
             isCharging = true;
         }
@@ -58,14 +72,11 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //transform.localScale = new Vector2(-(Mathf.Sign(enemyCharacter.linearVelocity.x)), 1.0f):
+        
         if(collision.tag == "Player")
         {
             collision.GetComponent<PlayerHealth>().TakeDamage(damage);
-        }
-        
-       if(collision.gameObject.tag == "Laser")
-        {
-            Destroy(transform.parent.gameObject);
         }
     }
 
@@ -106,5 +117,15 @@ public class Enemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target, chargeSpeed * Time.deltaTime);
 
         spriteRenderer.flipX = (transform.position.x - player.position.x) < 0f;
+    }
+
+    bool IsFacingRight()
+    {
+        return transform.localScale.x > 0;
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }

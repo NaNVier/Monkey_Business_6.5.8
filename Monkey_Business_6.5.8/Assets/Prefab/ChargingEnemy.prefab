@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 999985066925040549}
   m_Layer: 0
   m_Name: ChargingEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,9 +110,10 @@ GameObject:
   - component: {fileID: 9095290869812855207}
   - component: {fileID: 4540165562927816134}
   - component: {fileID: 8534801554465882651}
+  - component: {fileID: 2609724473675696603}
   m_Layer: 0
   m_Name: ActualEnemy
-  m_TagString: Damage
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -311,3 +312,16 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &2609724473675696603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6583998788541012037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e5452aeeec3794fbf2311fb16bf0c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxEnemyHealth: 5

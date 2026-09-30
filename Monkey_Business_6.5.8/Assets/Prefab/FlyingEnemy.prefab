@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1453006625508265138}
   m_Layer: 0
   m_Name: FlyingEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700711bf0f3c7f44db25d210a62c2141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyingEnemy
+  damage: 0
   detectionRange: 6
   updateRate: 0.2
 --- !u!195 &-1453006625508265138
@@ -82,6 +83,7 @@ GameObject:
   - component: {fileID: 3768149862024583785}
   - component: {fileID: 9095290869812855207}
   - component: {fileID: 4540165562927816134}
+  - component: {fileID: 9011275434131382693}
   m_Layer: 0
   m_Name: ActualEnemy
   m_TagString: Damage
@@ -232,3 +234,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9011275434131382693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6583998788541012037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e5452aeeec3794fbf2311fb16bf0c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxEnemyHealth: 3
