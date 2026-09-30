@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     float jumpBufferTimer;
     [SerializeField] private LayerMask groundLayer;
     LayerMask climbingLayer;
+
+    [SerializeField] private Vector2 deathSeq = new Vector2(25f, 25f);
     [SerializeField] private InputActionAsset inputActions;
     InputAction moveAction;
     InputAction jumpAction;
@@ -41,6 +43,8 @@ public class Player : MonoBehaviour
     BoxCollider2D playerFeetCollider;
 
     CapsuleCollider2D playerBodyCollider;
+
+    bool isAlive = true;
 
     public int coins;
 
@@ -91,6 +95,11 @@ public class Player : MonoBehaviour
         BetterGravity();
         Climb();
         FlipSprite();
+
+        if(!isAlive)
+        {
+            return;
+        }
 
         if(transform.position.y < -10)
         {
@@ -228,6 +237,13 @@ public class Player : MonoBehaviour
     }
     private void Die()
     {
+        //if (playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        //{
+        //   playerAnimator.SetTrigger("die"); //dont have yet
+
+        //   playerCharacter.linearVelocity = deathSeq; //Don't have yet
+        //}
+        
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 }
