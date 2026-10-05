@@ -127,7 +127,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: sewer tiels btt
     originalName: 
-    pivot: {x: 0.5, y: 1.3333334}
+    pivot: {x: 0.5074837, y: 1.3215944}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
