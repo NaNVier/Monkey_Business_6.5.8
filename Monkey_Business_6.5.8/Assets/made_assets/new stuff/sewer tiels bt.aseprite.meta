@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f1b4e5d4ddbcc42459fe143de4c0a620
+guid: 6dd4089a5f5f34548b03466636ee6b6f
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,7 +101,7 @@ ScriptedImporter:
     addShadowCasters: 0
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
-  platformSettingsDirtyTick: 639267527016924594
+  platformSettingsDirtyTick: 639267513537682218
   singleSpriteImportData:
   - name: 
     originalName: 
@@ -125,9 +125,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: wvvd end
+  - name: sewer tiels bt
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: -0.45454547}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -136,8 +136,8 @@ ScriptedImporter:
       x: 0
       y: 0
       width: 32
-      height: 32
-    spriteID: edfe1a05a17d9ad4db4bfaca8b7890ea
+      height: 11
+    spriteID: e48ee276317d66b4a89176edccec316b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,23 +145,23 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
+    uvTransform: {x: 0, y: -21}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2429313336
+      value0: 2558551735
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: wvvd end
+    name: sewer tiels bt
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: wvvd end
+    - name: sewer tiels bt
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -169,7 +169,7 @@ ScriptedImporter:
         y: 0
         width: 32
         height: 32
-      spriteId: edfe1a05a17d9ad4db4bfaca8b7890ea
+      spriteId: e48ee276317d66b4a89176edccec316b
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -202,5 +202,5 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
-  previousTextureSize: {x: 32, y: 32}
+  previousTextureSize: {x: 32, y: 16}
   canvasSize: {x: 32, y: 32}

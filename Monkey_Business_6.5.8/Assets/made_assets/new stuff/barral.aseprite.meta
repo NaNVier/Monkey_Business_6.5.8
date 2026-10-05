@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f1b4e5d4ddbcc42459fe143de4c0a620
+guid: fcb825380f93a88459ba5e8581a2a006
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,7 +101,7 @@ ScriptedImporter:
     addShadowCasters: 0
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
-  platformSettingsDirtyTick: 639267527016924594
+  platformSettingsDirtyTick: 639267513537651821
   singleSpriteImportData:
   - name: 
     originalName: 
@@ -125,19 +125,19 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: wvvd end
+  - name: barral
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.84210527}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 0
-      y: 0
-      width: 32
-      height: 32
-    spriteID: edfe1a05a17d9ad4db4bfaca8b7890ea
+      x: 4
+      y: 4
+      width: 18
+      height: 19
+    spriteID: d6ede8e0562a2584f9403e608426969a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,31 +145,31 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
+    uvTransform: {x: 4, y: 4}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2429313336
+      value0: 140421078
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: wvvd end
+    name: barral
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: wvvd end
+    - name: barral
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
+        x: 7
         y: 0
-        width: 32
-        height: 32
-      spriteId: edfe1a05a17d9ad4db4bfaca8b7890ea
+        width: 18
+        height: 19
+      spriteId: d6ede8e0562a2584f9403e608426969a
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

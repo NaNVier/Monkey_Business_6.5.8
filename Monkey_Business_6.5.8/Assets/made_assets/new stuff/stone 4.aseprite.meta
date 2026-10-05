@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f1b4e5d4ddbcc42459fe143de4c0a620
+guid: 8b5e840128a66f240aacb5de6c93b8cd
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,7 +101,7 @@ ScriptedImporter:
     addShadowCasters: 0
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
-  platformSettingsDirtyTick: 639267527016924594
+  platformSettingsDirtyTick: 639267513537697704
   singleSpriteImportData:
   - name: 
     originalName: 
@@ -125,9 +125,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: wvvd end
+  - name: stone 4
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 1, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -135,9 +135,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 32
-      height: 32
-    spriteID: edfe1a05a17d9ad4db4bfaca8b7890ea
+      width: 16
+      height: 16
+    spriteID: c7f84d591bd67b043a3f6a65bc76d842
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -151,25 +151,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2429313336
+      value0: 931162435
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: wvvd end
+    name: stone 4
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: wvvd end
+    - name: stone 4
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: edfe1a05a17d9ad4db4bfaca8b7890ea
+        y: 16
+        width: 16
+        height: 16
+      spriteId: c7f84d591bd67b043a3f6a65bc76d842
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -202,5 +202,5 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
-  previousTextureSize: {x: 32, y: 32}
+  previousTextureSize: {x: 16, y: 16}
   canvasSize: {x: 32, y: 32}

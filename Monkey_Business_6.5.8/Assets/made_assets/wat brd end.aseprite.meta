@@ -76,9 +76,9 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
-    mosaicPadding: 4
+    mosaicPadding: 0
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -91,9 +91,9 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
-    mosaicPadding: 4
+    mosaicPadding: 0
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -101,7 +101,7 @@ ScriptedImporter:
     addShadowCasters: 0
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
-  platformSettingsDirtyTick: 639266606729959892
+  platformSettingsDirtyTick: 639267527957066352
   singleSpriteImportData:
   - name: 
     originalName: 
@@ -127,14 +127,14 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: wat brd end
     originalName: 
-    pivot: {x: 0.8888889, y: -2.1666667}
+    pivot: {x: 0.8888889, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
+      x: 0
+      y: 0
       width: 18
       height: 6
     spriteID: 26d251e76c5a99b44a5884741374bd64
@@ -145,7 +145,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 0, y: 0}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
@@ -202,5 +202,5 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
-  previousTextureSize: {x: 32, y: 16}
+  previousTextureSize: {x: 32, y: 8}
   canvasSize: {x: 32, y: 32}

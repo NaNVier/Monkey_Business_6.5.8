@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f1b4e5d4ddbcc42459fe143de4c0a620
+guid: 7037c38cbef2b174f993975700504d3f
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,7 +101,7 @@ ScriptedImporter:
     addShadowCasters: 0
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
-  platformSettingsDirtyTick: 639267527016924594
+  platformSettingsDirtyTick: 639267513537667061
   singleSpriteImportData:
   - name: 
     originalName: 
@@ -125,7 +125,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: wvvd end
+  - name: sewer tiels 2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 9
@@ -137,7 +137,7 @@ ScriptedImporter:
       y: 0
       width: 32
       height: 32
-    spriteID: edfe1a05a17d9ad4db4bfaca8b7890ea
+    spriteID: ede44b0bd04f7db4e91a3d360aec835b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -151,17 +151,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2429313336
+      value0: 3573330531
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: wvvd end
+    name: sewer tiels 2
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: wvvd end
+    - name: sewer tiels 2
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -169,7 +169,7 @@ ScriptedImporter:
         y: 0
         width: 32
         height: 32
-      spriteId: edfe1a05a17d9ad4db4bfaca8b7890ea
+      spriteId: ede44b0bd04f7db4e91a3d360aec835b
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
