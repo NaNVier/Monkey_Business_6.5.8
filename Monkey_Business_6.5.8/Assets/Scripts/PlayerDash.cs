@@ -35,10 +35,10 @@ public class PlayerDash : MonoBehaviour
 
     void Update()
     {
-        // if(!player.isAlive)
-        // {
-        //    return;
-        // }
+         //if(!player.isAlive)
+         //{
+         //  return;
+         //}
 
         if (cooldownTimer > 0)
         {
