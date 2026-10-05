@@ -1,4 +1,6 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Checkpoint : MonoBehaviour
 {
@@ -10,5 +12,12 @@ public class Checkpoint : MonoBehaviour
         {
             savedPosition = collision.transform.position;
         }
+    }
+
+    public void LoadNextScene(string sceneName)
+    {
+        savedPosition = Vector2.zero;
+
+        SceneManager.LoadScene(sceneName);
     }
 }
