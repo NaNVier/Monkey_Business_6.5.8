@@ -2,6 +2,7 @@ using NUnit.Framework.Constraints;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -26,8 +27,9 @@ public class Player : MonoBehaviour
     float jumpBufferTimer;
     [SerializeField] private LayerMask groundLayer;
     LayerMask climbingLayer;
+    LayerMask bouncepadLayer;
 
-    [SerializeField] private Vector2 deathSeq = new Vector2(25f, 25f);
+    [SerializeField] private Vector2 bounce = new Vector2(0f, 15f);
     [SerializeField] private InputActionAsset inputActions;
     InputAction moveAction;
     InputAction jumpAction;
@@ -93,6 +95,7 @@ public class Player : MonoBehaviour
         Run();
         Jump();        
         BetterGravity();
+        Bounce();
         Climb();
         FlipSprite();
 
@@ -185,6 +188,14 @@ public class Player : MonoBehaviour
         lastGroundTime = 0;
 
         jumpBufferTimer = 0;
+    }
+
+    private void Bounce()
+    {
+        if (playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("bouncepad")))
+        {
+            playerCharacter.linearVelocity = bounce;
+        }
     }
 
     private void BetterGravity()
