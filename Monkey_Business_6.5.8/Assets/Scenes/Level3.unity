@@ -4864,11 +4864,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 16.379026, y: 27.451843}
-      - {x: -5.4196005, y: 27.002558}
-      - {x: -5.3426857, y: -4.592143}
-      - {x: 36.126396, y: -4.630933}
-      - {x: 36.382217, y: 27.429018}
+    - - {x: 26.7797, y: 48.253166}
+      - {x: -3.8194923, y: 27.002558}
+      - {x: -37.00508, y: 23.196405}
+      - {x: -46.305, y: 10.7999115}
+      - {x: -46.092712, y: -4.3606253}
+      - {x: -6.742775, y: -6.59227}
+      - {x: 28.844952, y: -6.673584}
+      - {x: 40.926712, y: -4.030902}
+      - {x: 63.902695, y: 13.761874}
+      - {x: 63.183918, y: 48.43035}
   m_UseDelaunayMesh: 1
 --- !u!483693784 &1093025521
 TilemapRenderer:
@@ -40007,6 +40012,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1218013524807624660, guid: febfa35ee53b1354e8b4ed74b585939b, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5246159877270555909, guid: febfa35ee53b1354e8b4ed74b585939b, type: 3}
       propertyPath: 'Laser.Array.data[0]'
       value: 
@@ -40174,15 +40183,15 @@ PrefabInstance:
       objectReference: {fileID: 1093025520}
     - target: {fileID: 7732932514517732045, guid: 16a598eaa0d15444dabf30345db063f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1640749
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7732932514517732045, guid: 16a598eaa0d15444dabf30345db063f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.000001
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7732932514517732045, guid: 16a598eaa0d15444dabf30345db063f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.3506012
+      value: 2.3500013
       objectReference: {fileID: 0}
     - target: {fileID: 8431687345445520338, guid: 16a598eaa0d15444dabf30345db063f5, type: 3}
       propertyPath: m_LocalPosition.x
