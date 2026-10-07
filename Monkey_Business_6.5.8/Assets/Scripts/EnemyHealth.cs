@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentEnemyHealth > 0)
         {
-            return;
+            //return;
         }
         else
         {
