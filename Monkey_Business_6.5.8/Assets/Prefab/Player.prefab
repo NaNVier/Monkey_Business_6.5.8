@@ -121,7 +121,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -429739235
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
@@ -264,8 +264,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.03455305, y: -0.003403902}
-  m_Size: {x: 0.8086289, y: 1.0122542}
+  m_Offset: {x: -0.03455305, y: 0.010734081}
+  m_Size: {x: 0.8086289, y: 1.0405302}
   m_Direction: 0
 --- !u!114 &4415877007451812281
 MonoBehaviour:
@@ -292,7 +292,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  deathSeq: {x: 25, y: 25}
+  knockback: {x: 5, y: 5}
   inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   coins: 0
 --- !u!114 &5518229583326622070
@@ -308,6 +308,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   startingHealth: 10
+  knockback: {x: 25, y: 25}
+  iFrameDuration: 1
 --- !u!114 &5246159877270555909
 MonoBehaviour:
   m_ObjectHideFlags: 0
