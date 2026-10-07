@@ -5,10 +5,12 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float speed = 1.0f;
     [SerializeField] private float damage;
+
     Rigidbody2D enemyCharacter;
     public Transform[] points;
     private int i;
     private SpriteRenderer spriteRenderer;
+    private BoxCollider2D boxCollider;
     private Transform player;
     private bool isCharging;
 
@@ -23,22 +25,11 @@ public class Enemy : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         enemyCharacter = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     void Update()
     {
-        //if(IsFacingRight())
-        //{
-        //    enemyCharacter.linearVelocity = new Vector2(speed, 0);
-        //}
-        //else
-        //{
-        //    enemyCharacter.linearVelocity = new Vector2(-speed, 0);
-        //}
-        // 
-
-
-
         if (canCharge && DetectPlayer())
         {
             isCharging = true;
@@ -56,10 +47,10 @@ public class Enemy : MonoBehaviour
 
     void Patrol()
     {
-        if (Vector2.Distance(transform.position, points[i].position) < 0.25f)
+        if(Vector2.Distance(transform.position, points[i].position) < 0.25f)
         {
             i++;
-            if (i == points.Length)
+            if(i == points.Length)
             {
                 i = 0;
             }
@@ -67,12 +58,12 @@ public class Enemy : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
 
-        spriteRenderer.flipX = (transform.position.x - points[i].position.x) < 0f;
+        spriteRenderer.flipX = (transform.position.x - points[i].position.x) > 0f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //transform.localScale = new Vector2(-(Mathf.Sign(enemyCharacter.linearVelocity.x)), 1.0f):
+        transform.localScale = new Vector2(-(Mathf.Sign(enemyCharacter.linearVelocity.x)), 1.0f);
         
         if(collision.tag == "Player")
         {

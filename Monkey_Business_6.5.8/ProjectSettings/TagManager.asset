@@ -10,6 +10,8 @@ TagManager:
   - Bouncepad
   - Laser
   - Enemy
+  - Wall
+  - Collectible
   layers:
   - Default
   - TransparentFX
@@ -17,15 +19,15 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
-  - Player
-  - Background
-  - Traps
-  - Climbing
-  - 
-  - 
-  - 
-  - 
+  - ground
+  - player
+  - background
+  - traps
+  - climbing
+  - walls
+  - foreground
+  - enemy
+  - bouncepad
   - 
   - 
   - 
@@ -53,6 +55,9 @@ TagManager:
   - name: ground
     uniqueID: 3087575123
     locked: 0
+  - name: Collectible
+    uniqueID: 2187576933
+    locked: 0
   - name: Traps
     uniqueID: 776816085
     locked: 0
@@ -61,6 +66,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3865228061
+    locked: 0
+  - name: Foreground
+    uniqueID: 139245561
     locked: 0
   - name: Camera
     uniqueID: 2699388145

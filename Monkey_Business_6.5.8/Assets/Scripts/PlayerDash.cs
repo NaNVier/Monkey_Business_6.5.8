@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 [DefaultExecutionOrder(100)]
 [RequireComponent(typeof(Player), typeof(Rigidbody2D), typeof(BoxCollider2D))]
 public class PlayerDash : MonoBehaviour
 {
     [SerializeField] private float dashSpeed = 12.0f;
-    [SerializeField] private float dashTime = 0.15f;
+    [SerializeField] private float dashTime = 1f;
     [SerializeField] private float dashCooldown = 0.1f;
     [SerializeField] private bool allowAirDash = true;
     [SerializeField] private AudioClip dashSfx;
@@ -14,6 +15,7 @@ public class PlayerDash : MonoBehaviour
     Player player;
     Rigidbody2D playerCharacter;
     BoxCollider2D playerFeetCollider;
+    Animator playerAnimator;
     AudioSource audioSource;
     InputAction dashAction;
     float dashTimer;
@@ -27,6 +29,7 @@ public class PlayerDash : MonoBehaviour
         player = GetComponent<Player>();
         playerCharacter = GetComponent<Rigidbody2D>();
         playerFeetCollider = GetComponent<BoxCollider2D>();
+        playerAnimator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         startingGravityScale = playerCharacter.gravityScale;
         dashAction = player.InputActions?.FindAction("Player/Dash");
@@ -61,7 +64,7 @@ public class PlayerDash : MonoBehaviour
             {
                 playerCharacter.linearVelocity = dashVelocity;
             }
-
+            
             return;
         }
 
@@ -76,12 +79,14 @@ public class PlayerDash : MonoBehaviour
     private void StartDash()
     {
         Vector2 dashDirection = player.MoveInput;
+        bool isDashing = playerAnimator.GetBool("dash");
         if (dashDirection == Vector2.zero)
         {
             dashDirection = transform.localScale.x >= 0 ? Vector2.right : Vector2.left;
         }
 
         playerCharacter.gravityScale = 0;
+        playerAnimator.SetBool("dash", true);
         dashVelocity = dashDirection.normalized * dashSpeed;
         playerCharacter.linearVelocity = dashVelocity;
         dashTimer = dashTime;
@@ -97,6 +102,7 @@ public class PlayerDash : MonoBehaviour
     private void EndDash()
     {
         playerCharacter.gravityScale = startingGravityScale;
+        playerAnimator.SetBool("dash", false);
     }
 
     private bool IsGrounded()
