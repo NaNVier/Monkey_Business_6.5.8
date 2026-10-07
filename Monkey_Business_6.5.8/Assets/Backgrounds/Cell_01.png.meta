@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9f15f6bf69a5cf14389663ea38436b29
+guid: 4cf6aede856372c43993c73bc6abd021
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5983996148770192483
-    second: Sewer_Background_0
+      213: -6624378979618670397
+    second: Cell_01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sewer_Background_0
+      name: Cell_01_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 360
+        width: 296
+        height: 196
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d934f3f053394fca0800000000000000
-      internalID: -5983996148770192483
+      spriteID: 3c8b34e5a6a7114a0800000000000000
+      internalID: -6624378979618670397
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sewer_Background_0: -5983996148770192483
+      Cell_01_0: -6624378979618670397
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
