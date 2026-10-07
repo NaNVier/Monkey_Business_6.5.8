@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 461469837596970596}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.667, y: 0.101, z: 0}
+  m_LocalPosition: {x: 0.739, y: 0.101, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -124,7 +124,7 @@ SpriteRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+  m_Sprite: {fileID: -6906237076007435260, guid: be0ad621ad72aa641a2accde222f7c97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,8 +172,8 @@ BoxCollider2D:
   m_Offset: {x: -0.030569226, y: -0.45324558}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5185185, y: 0.5}
+    oldSize: {x: 0.84375, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -196,7 +196,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -287,12 +287,12 @@ MonoBehaviour:
   coyoteTime: 0.1
   jumpBufferTime: 0.1
   ladderJumpTime: 0.15
-  fallGravityMultiplier: 2
+  fallGravityMultiplier: 100
   climbSpeed: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  knockback: {x: 5, y: 5}
+  bounce: {x: 0, y: 10}
   inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   coins: 0
 --- !u!114 &5518229583326622070

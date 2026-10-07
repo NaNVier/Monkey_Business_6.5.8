@@ -69,6 +69,11 @@ public class Enemy : MonoBehaviour
         {
             collision.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
+
+        if(collision.tag == "Laser")
+        {
+            Die();
+        }
     }
 
     bool DetectPlayer()
