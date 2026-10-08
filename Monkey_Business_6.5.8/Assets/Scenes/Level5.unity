@@ -27512,11 +27512,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.09545347, y: 10.020078}
-      - {x: -25.147772, y: 10.092699}
-      - {x: -25.070852, y: -10.019997}
-      - {x: 25.166302, y: -10.163171}
-      - {x: 25.004597, y: 9.997248}
+    - - {x: -38.13242, y: 25.131096}
+      - {x: -82.08929, y: 25.103645}
+      - {x: -82.012375, y: -10.1200695}
+      - {x: 23.164845, y: -10.063098}
+      - {x: 23.003136, y: 25.108267}
   m_UseDelaunayMesh: 1
 --- !u!483693784 &1093025521
 TilemapRenderer:
@@ -27912,7 +27912,7 @@ Sprite:
       height: 4
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
-    settingsRaw: 2112
+    settingsRaw: 3136
     uvTransform: {x: 4, y: 2, z: 4, w: 2}
     downscaleMultiplier: 1
   m_AtlasRD:
@@ -27993,7 +27993,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     m_BlendShapes:
       vertices: []
