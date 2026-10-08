@@ -5426,7 +5426,7 @@ Sprite:
       height: 4
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
-    settingsRaw: 2112
+    settingsRaw: 3136
     uvTransform: {x: 4, y: 2, z: 4, w: 2}
     downscaleMultiplier: 1
   m_AtlasRD:
@@ -5507,7 +5507,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     m_BlendShapes:
       vertices: []
@@ -5806,7 +5806,6 @@ GameObject:
   - component: {fileID: 789265563}
   - component: {fileID: 789265566}
   - component: {fileID: 789265565}
-  - component: {fileID: 789265564}
   m_Layer: 12
   m_Name: Foreground
   m_TagString: Untagged
@@ -5829,58 +5828,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2084981522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &789265564
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789265562}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 16.379026, y: 27.451843}
-      - {x: -5.4196005, y: 27.002558}
-      - {x: -5.3426857, y: -4.592143}
-      - {x: 36.126396, y: -4.630933}
-      - {x: 36.382217, y: 27.429018}
-  m_UseDelaunayMesh: 1
 --- !u!483693784 &789265565
 TilemapRenderer:
   serializedVersion: 2
@@ -6783,14 +6730,21 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 16.178333, y: 27.000284}
-      - {x: -3.9637613, y: 26.991184}
-      - {x: -3.9939742, y: 5.314286}
-      - {x: -4.038187, y: -3.990066}
-      - {x: 7.995125, y: -3.9358938}
-      - {x: 8.015622, y: -0.045924425}
-      - {x: 35.975876, y: -0.06518078}
-      - {x: 36.031006, y: 26.977459}
+    - - {x: 22.776117, y: 44.92696}
+      - {x: 22.758522, y: 29.016794}
+      - {x: -32.831688, y: 29.007694}
+      - {x: -48.14492, y: 13.804853}
+      - {x: -47.976868, y: -6.006575}
+      - {x: -14.186481, y: -5.952404}
+      - {x: -12.5945, y: -8.28731}
+      - {x: 18.310436, y: -8.005831}
+      - {x: 45.211308, y: -8.024941}
+      - {x: 44.9971, y: -1.4448977}
+      - {x: 54.27969, y: 8.042318}
+      - {x: 66.18265, y: 8.00305}
+      - {x: 66.14501, y: 44.81633}
+      - {x: 56.13139, y: 52.203655}
+      - {x: 32.422516, y: 52.13076}
   m_UseDelaunayMesh: 1
 --- !u!483693784 &1093025521
 TilemapRenderer:
@@ -40743,7 +40697,7 @@ PrefabInstance:
       objectReference: {fileID: 1093025520}
     - target: {fileID: 7732932514517732045, guid: 16a598eaa0d15444dabf30345db063f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.830696
+      value: 7.807141
       objectReference: {fileID: 0}
     - target: {fileID: 7732932514517732045, guid: 16a598eaa0d15444dabf30345db063f5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -40751,7 +40705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7732932514517732045, guid: 16a598eaa0d15444dabf30345db063f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.954211
+      value: 4.9542313
       objectReference: {fileID: 0}
     - target: {fileID: 8431687345445520338, guid: 16a598eaa0d15444dabf30345db063f5, type: 3}
       propertyPath: m_LocalPosition.x
