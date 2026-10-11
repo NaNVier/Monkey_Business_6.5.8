@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Player), typeof(Rigidbody2D), typeof(BoxCollider2D))]
 public class PlayerDash : MonoBehaviour
 {
-    [SerializeField] private float dashSpeed = 12.0f;
+    [SerializeField] private float dashSpeed = 8.0f;
     [SerializeField] private float dashTime = 1f;
     [SerializeField] private float dashCooldown = 0.1f;
     [SerializeField] private bool allowAirDash = true;
