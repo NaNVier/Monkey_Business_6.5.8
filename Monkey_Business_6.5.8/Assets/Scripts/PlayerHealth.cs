@@ -53,7 +53,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            Die();
         }
     }
 
@@ -84,4 +84,10 @@ public class PlayerHealth : MonoBehaviour
         isInvin = false;
     }
 
+    private void Die()
+    {
+        FindFirstObjectByType<GameSession>().ProcessPlayerDeath();
+        
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
 }
