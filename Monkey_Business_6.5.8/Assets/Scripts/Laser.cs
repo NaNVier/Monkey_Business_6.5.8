@@ -3,7 +3,7 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] public float damage;
+    [SerializeField] private float damage;
     private float lifetime;
     private float direction;
     private bool hit; 
@@ -31,9 +31,9 @@ public class Laser : MonoBehaviour
         boxCollider.enabled = false;
         gameObject.SetActive(false);
 
-        if(collision.tag == "Enemy")
+        if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
         {
-            collision.GetComponent<EnemyHealth>().EnemyTakeDamage(damage);
+            enemy.EnemyTakeDamage(damage);
         }
     }
 

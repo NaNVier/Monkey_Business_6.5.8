@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4601911917518101094}
   - component: {fileID: -2072045660378621496}
-  - component: {fileID: 6634349584960100573}
+  - component: {fileID: -3726947213159351335}
   m_Layer: 0
   m_Name: NextLevelTrigger
   m_TagString: Untagged
@@ -79,7 +79,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.003128, y: 1.372694}
   m_EdgeRadius: 0
---- !u!114 &6634349584960100573
+--- !u!114 &-3726947213159351335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,8 +88,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4249705593285467795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e38bb127d98b6f34ab5b3e764e5b6ee3, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a8c13b37f6abc54e9387a6e51b13347, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NextLevel
-  nextLevelName: Level2
-  nextLevelValue: 2
+  m_EditorClassIdentifier: Assembly-CSharp::NextLevelTrigger
+  nextLevelName: 
