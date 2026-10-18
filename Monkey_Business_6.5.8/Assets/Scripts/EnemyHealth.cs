@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] public float maxEnemyHealth;
+    [SerializeField] public float maxEnemyHealth = 100;
     private float currentEnemyHealth;
 
     SpriteRenderer spriteRenderer;
@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
 
         StartCoroutine(FlashDamageColor());
 
-        if (currentEnemyHealth <= 0f)
+        if (currentEnemyHealth <= 0)
         {
             Die();
         }

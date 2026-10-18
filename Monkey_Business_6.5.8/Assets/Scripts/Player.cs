@@ -1,6 +1,7 @@
 using NUnit.Framework.Constraints;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -19,22 +20,21 @@ public class Player : MonoBehaviour
     [SerializeField] private float coyoteTime = 0.1f;
     [SerializeField] private float jumpBufferTime = 0.1f;
     [SerializeField] private float ladderJumpTime = 0.15f;
+    float jumpedOffLadderTimer;
     [SerializeField] private float fallGravityMultiplier = 2.0f;
     [SerializeField] private float climbSpeed = 5.0f;
-    float jumpedOffLatterTimer;
     float gravityScaleAtStart;
     float lastGroundTime;
     float jumpBufferTimer;
     [SerializeField] private LayerMask groundLayer;
     LayerMask climbingLayer;
-    LayerMask bouncepadLayer;
 
     [SerializeField] private Vector2 bounce = new Vector2(0f, 15f);
     [SerializeField] private InputActionAsset inputActions;
     InputAction moveAction;
     InputAction jumpAction;
-    private SpriteRenderer spriteRenderer;
     public bool JumpPressedThisFrame => jumpAction != null && jumpAction.WasPressedThisFrame();
+    public bool SpecialMovementActive { get; private set; }
     public LayerMask GroundLayer => groundLayer.value != 0 ? groundLayer : LayerMask.GetMask("Ground");
     public Vector2 MoveInput { get; private set; } 
 
@@ -46,9 +46,15 @@ public class Player : MonoBehaviour
 
     CapsuleCollider2D playerBodyCollider;
 
-    bool isAlive = true;
+    AudioSource audioSource;
+    [SerializeField] AudioClip die;
+    [SerializeField] AudioClip jumpSound;
 
     public int coins;
+
+    bool isAlive = true;
+    public bool IsAlive => IsAlive;
+    [SerializeField] private Vector2 deathseq = new Vector2(25f, 25f);
 
     // Initializes its contents before the game begins
     void Awake()
@@ -71,11 +77,21 @@ public class Player : MonoBehaviour
 
         jumpAction = playerMap.FindAction("Jump", true);
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
+
+        playerCharacter.linearDamping = 0.0f;
+
+        runAcceleration = Mathf.Max(runAcceleration, runSpeed * 6.0f);
+        runDeceleration = Mathf.Max(runDeceleration, runSpeed * 8.0f);
 
 
         playerMap.Enable();
 
+    }
+
+    private void OnDestroy()
+    {
+        inputActions?.Disable();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -90,24 +106,24 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveInput = moveAction.ReadValue<Vector2>();
-
-        Run();
-        Jump();        
-        BetterGravity();
-        Bounce();
-        Climb();
-        FlipSprite();
-
-        if(!isAlive)
+        if (!isAlive)
         {
             return;
         }
 
-        if(transform.position.y < -10)
-        {
-            Die();
-        }
+        MoveInput = moveAction.ReadValue<Vector2>();
+
+        Run();
+        FlipSprite();
+        Jump();
+        BetterGravity();
+        Climb();
+        Bounce();
+    }
+
+    public void SetSpecialMovementActive(bool active)
+    {
+        SpecialMovementActive = active;
     }
 
     private void Run()
@@ -116,16 +132,7 @@ public class Player : MonoBehaviour
 
         float targetSpeed = MoveInput.x * runSpeed;
 
-        float speedChange;
-
-        if(Mathf.Abs(targetSpeed) > Mathf.Epsilon)
-        {
-            speedChange = runAcceleration;
-        }
-        else
-        {
-            speedChange = runDeceleration;
-        }
+        float speedChange = Mathf.Abs(targetSpeed) > Mathf.Epsilon ? runAcceleration : runDeceleration;
 
         float newSpeed = Mathf.MoveTowards(playerCharacter.linearVelocity.x, targetSpeed, speedChange * Time.deltaTime);
 
@@ -154,7 +161,7 @@ public class Player : MonoBehaviour
             playerCharacter.linearVelocity = new Vector2(playerCharacter.linearVelocity.x, playerCharacter.linearVelocity.y * jumpCutMultiplier);
         }
         
-        bool isGrounded = playerFeetCollider.IsTouchingLayers(groundLayer) || playerFeetCollider.IsTouchingLayers(climbingLayer);
+        bool isGrounded = playerFeetCollider.IsTouchingLayers(GroundLayer) || playerFeetCollider.IsTouchingLayers(climbingLayer);
 
         if(isGrounded)
         {
@@ -188,6 +195,9 @@ public class Player : MonoBehaviour
         lastGroundTime = 0;
 
         jumpBufferTimer = 0;
+
+        jumpedOffLadderTimer = ladderJumpTime;
+        audioSource.PlayOneShot(jumpSound, 0.7f);
     }
 
     private void Bounce()
@@ -200,6 +210,11 @@ public class Player : MonoBehaviour
 
     private void BetterGravity()
     {
+        if (playerBodyCollider.IsTouchingLayers(climbingLayer))
+        {
+            return;
+        }
+        
         //Use stronger gravity when falling, then cap fall speed
 
         float gravityMultiplier = playerCharacter.linearVelocity.y < 0 ? fallGravityMultiplier : 1f;
@@ -214,24 +229,15 @@ public class Player : MonoBehaviour
 
     private void Climb()
     {
-        jumpedOffLatterTimer -= Time.deltaTime;
+        jumpedOffLadderTimer -= Time.deltaTime;
 
-        bool onLatter = playerBodyCollider.IsTouchingLayers(climbingLayer);
-
-        bool wasClimbing = playerAnimator.GetBool("climb");
-
-        if (jumpedOffLatterTimer > 0 || !onLatter)
+        if (jumpedOffLadderTimer > 0 || !playerBodyCollider.IsTouchingLayers(climbingLayer))
         {
             playerAnimator.SetBool("climb", false);
-            
+
             playerCharacter.gravityScale = gravityScaleAtStart;
 
             return;
-        }
-
-        if(!onLatter && wasClimbing && jumpedOffLatterTimer <= 0)
-        {
-            playerCharacter.linearVelocity = new Vector2(playerCharacter.linearVelocity.x, 0f);
         }
 
         float vMovement = MoveInput.y;
@@ -240,21 +246,29 @@ public class Player : MonoBehaviour
 
         playerCharacter.linearVelocity = climbingVelocity;
 
+        playerCharacter.gravityScale = 0f;
+
         bool vSpeed = Mathf.Abs(playerCharacter.linearVelocity.y) > Mathf.Epsilon;
 
-        playerAnimator.SetBool("climb", true);
-        
-        playerCharacter.gravityScale = 0f;
+        playerAnimator.SetBool("climb", vSpeed);
     }
-    private void Die()
+    public void Die()
     {
-        //if (playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
-        //{
-        //   playerAnimator.SetTrigger("die"); //dont have yet
-
-        //   playerCharacter.linearVelocity = deathSeq; //Don't have yet
-        //}
+        if (!isAlive)
+        {
+            return;
+        }
         
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        isAlive = false;
+
+        playerAnimator.SetTrigger("die");
+
+        playerCharacter.linearVelocity = deathseq;
+
+        audioSource.PlayOneShot(die, 1.0f);
+
+        FindFirstObjectByType<GameSession>().ProcessPlayerDeath();
+
     }
 }
+

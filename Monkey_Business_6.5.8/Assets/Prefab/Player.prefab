@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 1418483734817067496}
   - component: {fileID: 2977610269209424879}
   - component: {fileID: -3816859451875223247}
+  - component: {fileID: 3056718402131719296}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -294,7 +295,10 @@ MonoBehaviour:
     m_Bits: 64
   bounce: {x: 0, y: 10}
   inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  die: {fileID: 8300000, guid: 9b8878f889a2075499de6b4388e9368c, type: 3}
+  jumpSound: {fileID: 8300000, guid: 1b8b8cbf2c2724d438606cffc29c4844, type: 3}
   coins: 0
+  deathseq: {x: 10, y: 10}
 --- !u!114 &5518229583326622070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   startingHealth: 10
-  knockback: {x: 25, y: 25}
+  knockback: {x: 5, y: 5}
+  hit: {fileID: 8300000, guid: 28496947d8d820f4790475be4360bf57, type: 3}
   iFrameDuration: 1
 --- !u!114 &5246159877270555909
 MonoBehaviour:
@@ -335,6 +340,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  shoot: {fileID: 8300000, guid: 3e0fd27114651f94fbb070f258f81742, type: 3}
 --- !u!114 &5490741875992570444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,11 +358,11 @@ MonoBehaviour:
     m_Bits: 0
   wallCheckDistance: 0.08
   wallCoyoteTime: 0.1
-  wallJumpSpeed: 8
-  wallJumpHorizontalSpeed: 7
-  movementLockTime: 0.15
-  wallJumpGravityMultiplier: 1
-  wallJumpSfx: {fileID: 0}
+  wallJumpSpeed: 5
+  wallJumpHorizontalSpeed: 5
+  movementLockTime: 0.01
+  wallJumpGravityMultiplier: 1.5
+  wallJumpSfx: {fileID: 8300000, guid: 8ab42e65d5dab654fae79e4c55080f1c, type: 3}
 --- !u!114 &1418483734817067496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,7 +393,7 @@ MonoBehaviour:
   dashTime: 0.15
   dashCooldown: 0.1
   allowAirDash: 1
-  dashSfx: {fileID: 0}
+  dashSfx: {fileID: 8300000, guid: 8319c9c384a10234cbfd629aea066017, type: 3}
 --- !u!114 &-3816859451875223247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,3 +406,100 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a6c42c95c2e104eb32cd47a6bd309a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Restart
+--- !u!82 &3056718402131719296
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8445573589432542317}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

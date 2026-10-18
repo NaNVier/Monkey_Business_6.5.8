@@ -7,54 +7,80 @@ public class PlayerHealth : MonoBehaviour
 {
     [Header("Health Settings")]
     [SerializeField] private float startingHealth = 100;
-    [SerializeField] private Vector2 knockback = new Vector2(25f, 25f);
+    [SerializeField] private Vector2 knockback = new Vector2(5f, 5f);
+
+    [Header("Sound Effects")]
+    [SerializeField] AudioClip hit;
+    AudioSource audioSource;
 
     private Rigidbody2D playerCharacter;
     private SpriteRenderer spriteRenderer;
-    private CapsuleCollider2D playerBodyCollider;
-    private BoxCollider2D playerFeetCollider;
-    private Restart loadCurrent;
     public float currentHealth { get; private set; }
+
+    private Player playerDeath;
 
     [Header("Invincibility")]
     [SerializeField] public float iFrameDuration = 1f;
     private bool isInvin;
+    bool hasCollided = false;
 
     void Awake()
     {
         currentHealth = startingHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        playerBodyCollider = GetComponent<CapsuleCollider2D>();
-        playerFeetCollider = GetComponent<BoxCollider2D>();
         playerCharacter = GetComponent<Rigidbody2D>();
-        loadCurrent = GetComponent<Restart>();
+        audioSource = GetComponent<AudioSource>();
+        playerDeath = GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y < -10)
+        {
+            playerDeath.Die();
+        }
     }
 
-    public void TakeDamage(float _damage)
+    public void HealDamage(float _heal)
     {
-        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+        currentHealth = Mathf.Clamp(currentHealth + _heal, 0, startingHealth);
 
-        if (isInvin)
+        if(currentHealth < 10)
+        {
+            return;
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (hasCollided == false)
+        {
+            currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
+
+            if (isInvin)
+            {
+                return;
+            }
+
+            if (currentHealth > 0)
+            {
+                audioSource.PlayOneShot(hit, 1.0f);
+                StartCoroutine(Blinkred());
+                playerCharacter.linearVelocity = knockback;
+                StartCoroutine(InvincibilityFrames());
+            }
+
+            if (currentHealth <= 0 || Mathf.Approximately(currentHealth, 0f))
+            {
+                playerDeath.Die();
+            }
+        }
+        else
         {
             return;
         }
 
-        if (currentHealth > 0)
-        {
-            StartCoroutine(Blinkred());
-            playerCharacter.linearVelocity = knockback;
-            StartCoroutine(InvincibilityFrames());
-        }
-        else
-        {
-            Die();
-        }
     }
 
     private IEnumerator Blinkred()
@@ -67,6 +93,8 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator InvincibilityFrames()
     {
         isInvin = true;
+
+        hasCollided = true;
 
         float elapsed = 0f;
 
@@ -82,12 +110,6 @@ public class PlayerHealth : MonoBehaviour
 
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1);
         isInvin = false;
-    }
-
-    private void Die()
-    {
-        FindFirstObjectByType<GameSession>().ProcessPlayerDeath();
-        
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        hasCollided = false;
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Wall
   - Collectible
+  - CoinText
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - foreground
   - enemy
   - bouncepad
-  - 
+  - laser
   - 
   - 
   - 

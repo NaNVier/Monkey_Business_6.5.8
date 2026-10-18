@@ -6,16 +6,20 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] Laser;
     private Player playerMovement;
+    AudioSource audioSource;
+    [SerializeField] AudioClip shoot;
     private float cooldownTimer = Mathf.Infinity;
     
     private void Awake()
     {
         playerMovement = GetComponent<Player>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
         if(Input.GetMouseButton(0) && cooldownTimer > attackCooldown)
         {
+            audioSource.PlayOneShot(shoot, 1f);
             Attack();
         }
 

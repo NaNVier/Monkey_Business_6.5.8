@@ -1,20 +1,27 @@
 using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class NextLevelTrigger : MonoBehaviour
 {
-    public string nextLevelName;
+    [SerializeField] float levelLoadDelay = 2.0f;
+    [SerializeField] float sloMoFactor = 0.2f;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
-        {
-            LoadNextLevel();
-        }
+        StartCoroutine(LoadNextLevel());
     }
 
-    private void LoadNextLevel()
+    IEnumerator LoadNextLevel()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(nextLevelName);
-        Time.timeScale = 1;
+        Time.timeScale = sloMoFactor;
+
+        yield return new WaitForSecondsRealtime(levelLoadDelay);
+
+        Time.timeScale = 1.0f;
+
+        var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        SceneManager.LoadScene(currentSceneIndex + 1);
     }
 }

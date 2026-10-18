@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float speed = 1.0f;
-    [SerializeField] private float damage;
+    [SerializeField] private float damage = 1;
 
     Rigidbody2D enemyCharacter;
     public Transform[] points;

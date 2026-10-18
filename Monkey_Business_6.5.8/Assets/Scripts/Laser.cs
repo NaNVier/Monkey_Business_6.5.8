@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float damage;
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private float damage = 1;
     private float lifetime;
     private float direction;
     private bool hit; 

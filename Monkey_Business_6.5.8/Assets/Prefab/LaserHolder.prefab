@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2689240348925251869, guid: f92edc404a28717428a2dea7c085f61d, type: 3}
   m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &3694281588638707840
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Laser
   speed: 10
-  lifetime: 3
+  damage: 1
 --- !u!1 &521774533503290802
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2689240348925251869, guid: f92edc404a28717428a2dea7c085f61d, type: 3}
   m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -197,7 +197,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &6657953918522171378
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Laser
   speed: 10
-  lifetime: 3
+  damage: 1
 --- !u!1 &2824079990107522396
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +337,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2689240348925251869, guid: f92edc404a28717428a2dea7c085f61d, type: 3}
   m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -345,7 +345,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &2961334179445982145
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Laser
   speed: 10
-  lifetime: 3
+  damage: 1
 --- !u!1 &4903771670288408679
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +444,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2689240348925251869, guid: f92edc404a28717428a2dea7c085f61d, type: 3}
   m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -452,7 +452,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &1884741551039928150
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Laser
   speed: 10
-  lifetime: 3
+  damage: 1
 --- !u!1 &4925637554688809799
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2689240348925251869, guid: f92edc404a28717428a2dea7c085f61d, type: 3}
   m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -559,7 +559,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &3035858381133741692
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Laser
   speed: 10
-  lifetime: 3
+  damage: 1
 --- !u!1 &6661582375908044638
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +658,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2689240348925251869, guid: f92edc404a28717428a2dea7c085f61d, type: 3}
   m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -666,7 +666,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &1315937338157910962
@@ -682,7 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Laser
   speed: 10
-  lifetime: 3
+  damage: 1
 --- !u!1 &8002421618999551440
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +765,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2689240348925251869, guid: f92edc404a28717428a2dea7c085f61d, type: 3}
   m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -773,7 +773,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &5015817693556019221
@@ -789,7 +789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Laser
   speed: 10
-  lifetime: 3
+  damage: 1
 --- !u!1 &8360398430872552044
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +872,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2689240348925251869, guid: f92edc404a28717428a2dea7c085f61d, type: 3}
   m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -880,7 +880,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &3043484245723032352
@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Laser
   speed: 10
-  lifetime: 3
+  damage: 1
 --- !u!1 &8726375370805554892
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,7 +979,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2689240348925251869, guid: f92edc404a28717428a2dea7c085f61d, type: 3}
   m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -987,7 +987,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &6592074787091542682
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Laser
   speed: 10
-  lifetime: 3
+  damage: 1
 --- !u!1 &8937239444363006700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1086,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2689240348925251869, guid: f92edc404a28717428a2dea7c085f61d, type: 3}
   m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1094,7 +1094,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &6109015737614822458
@@ -1110,4 +1110,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Laser
   speed: 10
-  lifetime: 3
+  damage: 1
