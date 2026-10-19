@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   speed: 2
-  damage: 1
+  damage: 2
   points:
   - {fileID: 6962931653566611985}
   - {fileID: 5681188828257868066}

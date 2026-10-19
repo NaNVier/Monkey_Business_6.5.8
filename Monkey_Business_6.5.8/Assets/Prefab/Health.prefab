@@ -153,4 +153,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health_Pickup
   healthPickSFX: {fileID: 8300000, guid: a58e438b7cfa445498120af0e6169082, type: 3}
-  heal: 5
+  heal: 3
