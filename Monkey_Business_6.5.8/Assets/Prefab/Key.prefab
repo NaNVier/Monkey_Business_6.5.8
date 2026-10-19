@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8677221190642398898}
   - component: {fileID: 599028652159314774}
   - component: {fileID: 254346851571169081}
+  - component: {fileID: 3758421032860993509}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -153,3 +154,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key
   door: {fileID: 0}
+--- !u!95 &3758421032860993509
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821417185315489299}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: -2311657564151793250, guid: 472ab420b0d874d46adddf9b31cd8d74, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
