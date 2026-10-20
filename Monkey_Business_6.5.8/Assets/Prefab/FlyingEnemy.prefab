@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5911703845807834969}
   - component: {fileID: 4738858510024862132}
   - component: {fileID: 1506687942372973688}
-  - component: {fileID: 3992583713414896939}
+  - component: {fileID: 6094459892673991356}
   m_Layer: 13
   m_Name: FlyingEnemy
   m_TagString: Enemy
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9097234641282801652}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 23.057667, y: 7.8151197, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -125,11 +125,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0014990568, y: -0.061458826}
+  m_Offset: {x: -0.031971812, y: 0.09167671}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.53846157, y: 0.2857143}
@@ -139,7 +139,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8710859, y: 0.87708235}
+  m_Size: {x: 0.8101404, y: 0.44021225}
   m_EdgeRadius: 0
 --- !u!95 &1506687942372973688
 Animator:
@@ -163,7 +163,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3992583713414896939
+--- !u!114 &6094459892673991356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +172,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9097234641282801652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e5452aeeec3794fbf2311fb16bf0c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 700711bf0f3c7f44db25d210a62c2141, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxEnemyHealth: 3
+  m_EditorClassIdentifier: Assembly-CSharp::FlyingEnemy
+  damage: 1
+  detectionRange: 6
+  updateRate: 0.2

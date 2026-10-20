@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3709216521626613338}
   - component: {fileID: 2355542174942222519}
   - component: {fileID: 8474520122453585275}
-  - component: {fileID: 6204797202832124968}
+  - component: {fileID: -6704738947692689}
   m_Layer: 13
   m_Name: FlyingEnemy v2
   m_TagString: Enemy
@@ -163,7 +163,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6204797202832124968
+--- !u!114 &-6704738947692689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +172,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2255319490733911799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e5452aeeec3794fbf2311fb16bf0c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 700711bf0f3c7f44db25d210a62c2141, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxEnemyHealth: 3
+  m_EditorClassIdentifier: Assembly-CSharp::FlyingEnemy
+  damage: 1
+  detectionRange: 6
+  updateRate: 0.2

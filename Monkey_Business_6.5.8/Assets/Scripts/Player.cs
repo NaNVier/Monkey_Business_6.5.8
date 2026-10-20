@@ -165,8 +165,6 @@ public class Player : MonoBehaviour
 
         if(isGrounded)
         {
-            // remember a brief window after leaving a platform
-            
             lastGroundTime = coyoteTime;
         }
         else
@@ -175,9 +173,7 @@ public class Player : MonoBehaviour
         }
 
         if(JumpPressedThisFrame)
-        {
-            // remember a jump pressed before landing
-
+        {         
             jumpBufferTimer = jumpBufferTime;
         }
         else
