@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6987342667869160086}
   - component: {fileID: 8717340899101981463}
   - component: {fileID: 6671206246099688074}
+  - component: {fileID: -7633545299123365934}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -79,8 +80,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -429739235
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -157585469308760073, guid: 5ef00ac46e349f54cafa747d3c779519, type: 3}
@@ -154,3 +155,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health_Pickup
   healthPickSFX: {fileID: 8300000, guid: a58e438b7cfa445498120af0e6169082, type: 3}
   heal: 3
+--- !u!95 &-7633545299123365934
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7113757130999871029}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 8685722163987244120, guid: 5ef00ac46e349f54cafa747d3c779519, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

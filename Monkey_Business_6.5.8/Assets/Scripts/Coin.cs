@@ -3,14 +3,14 @@ using TMPro;
 
 public class Coin : MonoBehaviour
 {
+    [SerializeField] private int pickupValue = 1;
     [SerializeField] private AudioClip coinPickSFX;
-    private TextMeshProUGUI coinText;
 
     bool wasCollected = false; 
 
     private void Start()
     {
-        coinText = GameObject.FindWithTag("CoinText").GetComponent<TextMeshProUGUI>();
+    
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,12 +23,15 @@ public class Coin : MonoBehaviour
             }
 
             wasCollected = true;
+
+            FindFirstObjectByType<GameSession>().ProcessPlayerScore(pickupValue);
+
+
             
             AudioSource.PlayClipAtPoint(coinPickSFX, Camera.main.transform.position);
 
             Player player = collision.gameObject.GetComponent<Player>();
             player.coins += 1;
-            coinText.text = player.coins.ToString();
             Destroy(gameObject);
         }
     }
