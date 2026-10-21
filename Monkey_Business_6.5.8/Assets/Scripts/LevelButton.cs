@@ -8,10 +8,5 @@ public class LevelButton : MonoBehaviour
     void Start()
     {
         Button btn = GetComponent<Button>();
-
-        if (PlayerPrefs.GetInt("LevelReached") < level)
-        {
-            btn.interactable = false;
-        }
     }
 }
