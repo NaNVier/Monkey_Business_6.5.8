@@ -21,6 +21,15 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenuButton()
     {
+        GoToMainMenu();
+    }
+
+    public void GoToMainMenu()
+    {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
+
+        container.SetActive(false);
+
+        Time.timeScale = 0;
     }
 }

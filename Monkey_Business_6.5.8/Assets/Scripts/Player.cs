@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 
         gravityScaleAtStart = playerCharacter.gravityScale;
 
-        climbingLayer = LayerMask.GetMask("Climbing");
+        climbingLayer = LayerMask.GetMask("climbing");
         
         InputActionMap playerMap = inputActions.FindActionMap("Player", true);
 
