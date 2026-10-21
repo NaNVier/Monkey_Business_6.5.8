@@ -2133,6 +2133,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 2053959828}
+    - target: {fileID: 1358788718469013679, guid: cdc3ea881b7ac4842835e29130484874, type: 3}
+      propertyPath: container
+      value: 
+      objectReference: {fileID: 2091663511}
     - target: {fileID: 4553537271521993479, guid: cdc3ea881b7ac4842835e29130484874, type: 3}
       propertyPath: m_Name
       value: GameSession
@@ -2181,7 +2185,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3505503308660216988, guid: cdc3ea881b7ac4842835e29130484874, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

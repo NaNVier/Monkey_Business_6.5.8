@@ -29637,6 +29637,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 2053959828}
+    - target: {fileID: 4181800752695146557, guid: cdc3ea881b7ac4842835e29130484874, type: 3}
+      propertyPath: playerLives
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4553537271521993479, guid: cdc3ea881b7ac4842835e29130484874, type: 3}
       propertyPath: m_Name
       value: GameSession
